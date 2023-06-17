@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Mouse</title>
+    <style>
+        body{
+            height: 100vh;
+            background: #1E293B;
+            overflow-x: hidden;
+        }
+        .cursor{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+         
+           background: radial-gradient(circle at center, #f5f5f530 0%, rgba(245, 245, 245, 0) 60%);
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor" ></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  const cursor = document.querySelector(".cursor");
+
+  document.addEventListener("mousemove", function(e) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    const cursorWidth = cursor.offsetWidth;
+    const cursorHeight = cursor.offsetHeight;
+
+    const newX = mouseX - cursorWidth / 2;
+    const newY = mouseY - cursorHeight / 2;
+
+    cursor.style.left = `${newX}px`;
+    cursor.style.top = `${newY}px`;
+  });
+});
+
+    </script>
+</body>
+</html>
